@@ -374,7 +374,7 @@ IMPORTANT: Return only the JSON object. No extra text before or after.`;
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          "x-api-key": "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",
+          "x-api-key": import.meta.env.VITE_ANTHROPIC_API_KEY,
           "anthropic-version": "2023-06-01",
           "anthropic-dangerous-direct-browser-access": "true",
         },
