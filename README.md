@@ -1,16 +1,109 @@
-# React + Vite
+# ⬡ Pre-Market Brief
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+An AI-powered pre-market trading intelligence tool that generates a structured morning brief for a personal watchlist — including sentiment analysis, technical levels, and GO/NO-GO trade verdicts.
 
-Currently, two official plugins are available:
+**Live Demo:** [premarket-brief-lemon.vercel.app](https://premarket-brief-lemon.vercel.app)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+---
 
-## React Compiler
+## What It Does
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+One click generates a full pre-market brief for a configured watchlist. For each ticker, the agent returns:
 
-## Expanding the ESLint configuration
+- Pre-market price and percentage change
+- Volume estimate
+- Key support and resistance levels
+- Sentiment (Bullish / Bearish / Neutral)
+- Recent news summary
+- Upcoming catalysts
+- GO / NO-GO / WAIT verdict with reasoning
+- Overall market summary (SPY/QQQ macro context)
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Default watchlist: **NOK · SOFI · SPCE · VRA · SPY · QQQ**
+
+---
+
+## Tech Stack
+
+- **React** + **Vite** — frontend framework and build tool
+- **Anthropic Claude API** (`claude-sonnet-4-6`) — AI analysis and brief generation
+- **Vercel** — deployment and hosting
+
+---
+
+## Getting Started
+
+### Prerequisites
+- Node.js v18+
+- Anthropic API key ([console.anthropic.com](https://console.anthropic.com))
+
+### Installation
+
+```bash
+git clone https://github.com/JLSmith91/premarket-brief.git
+cd premarket-brief
+npm install
+```
+
+### Environment Variables
+
+Create a `.env` file in the root of the project:
+
+```
+VITE_ANTHROPIC_API_KEY=your_api_key_here
+```
+
+### Run Locally
+
+```bash
+npm run dev
+```
+
+Open [http://localhost:5173](http://localhost:5173) and click **Run Morning Scan**.
+
+---
+
+## Customization
+
+To change the watchlist, edit the `WATCHLIST` array at the top of `src/App.jsx`:
+
+```javascript
+const WATCHLIST = ["NOK", "SOFI", "SPCE", "VRA", "SPY", "QQQ"];
+```
+
+---
+
+## Deployment
+
+This project is deployed on Vercel. To deploy your own instance:
+
+1. Fork this repo
+2. Import it into [vercel.com](https://vercel.com)
+3. Add `VITE_ANTHROPIC_API_KEY` as an environment variable in Vercel project settings
+4. Deploy
+
+---
+
+## Project Structure
+
+```
+premarket-brief/
+├── src/
+│   └── App.jsx        # Main application component and AI agent logic
+├── public/
+├── index.html
+├── vite.config.js
+└── package.json
+```
+
+---
+
+## Part of a Larger AI Tooling Portfolio
+
+This agent is one of several AI-powered tools built for personal trading and daily workflows. Others in development include a Trade Journal Agent, Risk Rules Enforcer, and Weekly Life Planner.
+
+---
+
+## Author
+
+**Jared Smith** — [@JLSmith91](https://github.com/JLSmith91)
