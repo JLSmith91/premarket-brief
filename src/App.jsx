@@ -370,7 +370,7 @@ Use real current data from your search. If exact pre-market price is unavailable
 IMPORTANT: Return only the JSON object. No extra text before or after.`;
 
     try {
-      const response = await fetch("https://claude-proxy-gb7o.onrender.com/api/messages", {
+      const response = await fetch("https://claude-proxy-kxgv.onrender.com/api/messages", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
